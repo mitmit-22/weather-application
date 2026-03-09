@@ -39,4 +39,8 @@ A simple web application that provides weather information and forecasts for any
 
 ## Note
 
+
 To get an API key, sign up at [OpenWeatherMap](https://openweathermap.org/api) and generate a free API key. 
+
+create a folder template ->index.html
+create a folder static->script.js , style.css
