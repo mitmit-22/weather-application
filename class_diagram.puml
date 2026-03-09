@@ -1,0 +1,55 @@
+@startuml Weather App
+
+' Layout and styling
+skinparam class {
+    BackgroundColor White
+    BorderColor Black
+}
+
+' Main class at the top
+class WeatherApp {
+    +getCurrentWeather(city)
+    +getForecast(city)
+    +getRecommendations()
+    +manageFavorites()
+}
+
+' Service classes
+class WeatherService {
+    -apiKey
+    +getCurrentWeather(city)
+    +getForecast(city)
+}
+
+class RecommendationService {
+    +getRecommendations()
+    +getClothingTips()
+    +getActivityTips()
+}
+
+class FavoritesManager {
+    +getFavorites()
+    +addFavorite(city)
+    +removeFavorite(city)
+}
+
+' Data class
+class WeatherData {
+    +city
+    +temperature
+    +humidity
+    +description
+}
+
+' Layout relationships to match screenshot
+WeatherApp --> WeatherService
+WeatherApp --> RecommendationService
+WeatherApp --> FavoritesManager
+WeatherService --> WeatherData
+
+' Layout hints
+WeatherApp -[hidden]down- WeatherService
+WeatherService -[hidden]right- RecommendationService
+RecommendationService -[hidden]right- FavoritesManager
+
+@enduml 

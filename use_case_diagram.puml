@@ -1,0 +1,39 @@
+@startuml Weather App - Use Cases
+
+' Styling
+skinparam actorStyle awesome
+skinparam usecase {
+    BackgroundColor White
+    BorderColor Black
+}
+
+' Actor
+actor User
+
+' System boundary
+rectangle "Weather App" {
+    usecase "Check Weather" as UC1
+    usecase "View Forecast" as UC2
+    usecase "Get Recommendations" as UC3
+    usecase "Manage Favorites" as UC4
+}
+
+' External system
+actor "Weather API" as api
+
+' User relationships
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+
+' API relationships
+UC1 --> api
+UC2 --> api
+
+' Notes
+note right of UC1 : Shows temperature,\nhumidity, and description
+note right of UC3 : Provides clothing and\nactivity suggestions
+note bottom of UC4 : Manages user's\npreferred locations
+
+@enduml 
